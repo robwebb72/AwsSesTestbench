@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwsSesTestbench", "AwsSesTestbench\AwsSesTestbench.csproj", "{ECF8870B-B482-4F3F-8416-AA7989A525D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F7F1EF28-86E0-4CD3-A855-F7E9FE939CFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECF8870B-B482-4F3F-8416-AA7989A525D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF8870B-B482-4F3F-8416-AA7989A525D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF8870B-B482-4F3F-8416-AA7989A525D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF8870B-B482-4F3F-8416-AA7989A525D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ECF8870B-B482-4F3F-8416-AA7989A525D8} = {F7F1EF28-86E0-4CD3-A855-F7E9FE939CFC}
+	EndGlobalSection
+EndGlobal
