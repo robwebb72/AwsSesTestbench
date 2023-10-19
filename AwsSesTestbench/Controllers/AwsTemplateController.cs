@@ -18,7 +18,7 @@ public class AwsTemplateController : ControllerBase
     }
 
     [HttpGet]
-    [SwaggerOperation(Summary = "Get list of AWS SES Templates", Tags = new[] { "Template" })]
+    [SwaggerOperation(Summary = "Get list of AWS SES Templates", Tags = new[] { "AWS Email Template" })]
     public async Task<ActionResult<List<AwsTemplateIdModel>>> GetTemplateAsync(CancellationToken cancellationToken)
     {
         var result = await _awsTemplateService.GetTemplatesAsync(cancellationToken);
@@ -26,7 +26,7 @@ public class AwsTemplateController : ControllerBase
     }
     
     [HttpDelete]
-    [SwaggerOperation(Summary = "Delete AWS SES Template", Tags = new[] { "Template" })]
+    [SwaggerOperation(Summary = "Delete AWS SES Template", Tags = new[] { "AWS Email Template" })]
     public async Task<ActionResult<string>> DeleteTemplateAsync(string name, CancellationToken cancellationToken)
     {
         var (success, output) = await _awsTemplateService.DeleteTemplateAsync(name, cancellationToken);
@@ -34,7 +34,7 @@ public class AwsTemplateController : ControllerBase
     }
     
     [HttpPost]
-    [SwaggerOperation(Summary = "Create AWS SES Template", Tags = new[] { "Template" })]
+    [SwaggerOperation(Summary = "Create AWS SES Template", Tags = new[] { "AWS Email Template" })]
     public async Task<ActionResult<string>> CreateTemplateAsync(AwsTemplateCreateModel model, CancellationToken cancellationToken)
     {
         var (success, output) = await _awsTemplateService.CreateTemplateAsync(model, cancellationToken);
