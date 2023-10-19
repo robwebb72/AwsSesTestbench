@@ -1,4 +1,4 @@
-using AwsSesTestbench.Models;
+﻿using AwsSesTestbench.Models;
 using AwsSesTestbench.Services;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -23,4 +23,14 @@ public class AwsTemplateController : ControllerBase
         var result = await _awsTemplateService.GetTemplatesAsync(cancellationToken);
         return Ok(result);
     }
+    
+    [HttpDelete]
+    [SwaggerOperation(Summary = "Delete AWS SES Template", Tags = new[] { "Template" })]
+    public async Task<ActionResult<string>> DeleteTemplateAsync(string name, CancellationToken cancellationToken)
+    {
+        var (success, output) = await _awsTemplateService.DeleteTemplateAsync(name, cancellationToken);
+        return success ? Ok(output) : BadRequest(output);
+    }
+    
+    
 }
