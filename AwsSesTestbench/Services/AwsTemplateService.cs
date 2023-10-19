@@ -1,4 +1,5 @@
 ﻿using AwsSesTestbench.Models;
+using AwsSesTestbench.Models.AwsTemplates;
 
 namespace AwsSesTestbench.Services;
 
@@ -14,5 +15,12 @@ public class AwsTemplateService
     {
         await Task.CompletedTask;
         return (true, $"Deleted template: {name}");
+    }
+ 
+    public async Task<(bool, string)> CreateTemplateAsync(AwsTemplateCreateModel model, CancellationToken cancellationToken)
+    {
+        await Task.CompletedTask;
+        var messageId = "<no-id>";
+        return (true, $"Template created: {messageId}");
     }
 }

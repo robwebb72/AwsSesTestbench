@@ -1,4 +1,5 @@
 ﻿using AwsSesTestbench.Models;
+using AwsSesTestbench.Models.AwsTemplates;
 using AwsSesTestbench.Services;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -32,5 +33,12 @@ public class AwsTemplateController : ControllerBase
         return success ? Ok(output) : BadRequest(output);
     }
     
+    [HttpPost]
+    [SwaggerOperation(Summary = "Create AWS SES Template", Tags = new[] { "Template" })]
+    public async Task<ActionResult<string>> CreateTemplateAsync(AwsTemplateCreateModel model, CancellationToken cancellationToken)
+    {
+        var (success, output) = await _awsTemplateService.CreateTemplateAsync(model, cancellationToken);
+        return success ? Ok(output) : BadRequest(output);
+    }
     
 }
