@@ -16,6 +16,9 @@ public class AwsTemplateController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<List<AwsTemplateId>> GetTemplateAsync(CancellationToken cancellationToken)
-        => await _awsTemplateService.GetTemplatesAsync(cancellationToken);
+    public async Task<ActionResult<List<AwsTemplateId>>> GetTemplateAsync(CancellationToken cancellationToken)
+    {
+        var result = await _awsTemplateService.GetTemplatesAsync(cancellationToken);
+        return Ok(result);
+    }
 }
