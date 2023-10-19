@@ -35,7 +35,19 @@ public class AwsTemplateService
 
     public async Task<(bool, string)> DeleteTemplateAsync(string name, CancellationToken cancellationToken)
     {
-        await Task.CompletedTask;
+        var snsCredentials = new BasicAWSCredentials(AwsKeys.Access, AwsKeys.SecretAccess);
+        using var sesClient = new AmazonSimpleEmailServiceClient(snsCredentials, RegionEndpoint.EUWest1);
+
+        try
+        {
+            var deleteTemplateRequest = new DeleteTemplateRequest { TemplateName = name };
+            await sesClient.DeleteTemplateAsync(deleteTemplateRequest, cancellationToken);
+        }
+        catch (Exception ex)
+        {
+            return (false, $"DeleteTemplate failed with exception: {ex.Message}");
+        }
+        
         return (true, $"Deleted template: {name}");
     }
  
