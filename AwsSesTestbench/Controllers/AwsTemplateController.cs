@@ -1,4 +1,4 @@
-﻿using AwsSesTestbench.Models;
+using AwsSesTestbench.Models;
 using AwsSesTestbench.Services;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -18,7 +18,7 @@ public class AwsTemplateController : ControllerBase
 
     [HttpGet]
     [SwaggerOperation(Summary = "Get list of AWS SES Templates", Tags = new[] { "Template" })]
-    public async Task<ActionResult<List<AwsTemplateId>>> GetTemplateAsync(CancellationToken cancellationToken)
+    public async Task<ActionResult<List<AwsTemplateIdModel>>> GetTemplateAsync(CancellationToken cancellationToken)
     {
         var result = await _awsTemplateService.GetTemplatesAsync(cancellationToken);
         return Ok(result);
