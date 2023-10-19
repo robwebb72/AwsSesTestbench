@@ -1,3 +1,4 @@
+using AwsSesTestbench.AWS;
 using AwsSesTestbench.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddServices();
 builder.SetupDatabaseConnection();
+
+var awsSettings = builder.Configuration.GetSection("AwsSettings").Get<AwsSettings>();
+AwsKeys.Initialise(awsSettings!);
 
 var app = builder.Build();
 
