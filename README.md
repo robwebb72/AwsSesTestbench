@@ -10,7 +10,7 @@ This is a protoype/testbench to provide a number of endpoints for working with A
 - AWSSDK
 - Swashbuckle
 
-## Appsettings
+## appsettings.json
 
 The `appsettings.json` file will need to be populated with:
 
