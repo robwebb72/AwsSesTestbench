@@ -1,3 +1,4 @@
+using AwsSesTestbench;
 using AwsSesTestbench.AWS;
 using AwsSesTestbench.Setup;
 
@@ -9,6 +10,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddServices();
 builder.SetupDatabaseConnection();
+builder.Services.AddAutoMapper(typeof(AwsSesTestbenchMarker).Assembly);
 
 var awsSettings = builder.Configuration.GetSection("AwsSettings").Get<AwsSettings>();
 AwsKeys.Initialise(awsSettings!);
