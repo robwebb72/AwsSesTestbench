@@ -11,6 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddServices();
 builder.SetupDatabaseConnection();
 builder.Services.AddAutoMapper(typeof(AwsSesTestbenchMarker).Assembly);
+builder.Services.AddControllers(o => o.InputFormatters.Insert(o.InputFormatters.Count, new TextPlainInputFormatter()));
 
 var awsSettings = builder.Configuration.GetSection("AwsSettings").Get<AwsSettings>();
 AwsKeys.Initialise(awsSettings!);
