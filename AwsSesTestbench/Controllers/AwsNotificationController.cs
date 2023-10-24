@@ -18,6 +18,10 @@ public class AwsNotificationController : ControllerBase
         var messageModel = JsonSerializer.Deserialize<AwsNotificationModel>(notificationString, jsonSerializerOptions);
         await Task.CompletedTask;
 
+        if (messageModel is null)
+        {
+            return BadRequest($"cannot read notification message: {notificationString}");
+        }
         var (success, resultString) = (messageModel?.Type) switch
         {
             "Notification" => (true, "handled notification"),
