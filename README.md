@@ -1,13 +1,13 @@
 # Aws Ses Testbench
 
-This is a protoype/testbench to provide a number of endpoints for working with Aws's Simple Email Service.
+This is a prototype/test-bench to provide a number of endpoints for working with Aws's Simple Email Service.
 
 ## Packages Used
 
 - EntityFramework Core
 - Automapper
 - ASP.NET
-- AWSSDK
+- AWS SDK
 - Swashbuckle
 
 ## appsettings.json
