@@ -1,4 +1,4 @@
-﻿namespace AwsSesTestbench.Entities;
+﻿namespace AwsSesTestbench.Domain;
 
 public class EmailNotification
 {
