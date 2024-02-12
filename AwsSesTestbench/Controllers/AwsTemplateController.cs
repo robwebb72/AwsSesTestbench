@@ -6,8 +6,8 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace AwsSesTestbench.Controllers;
 
-[ApiController]
 [Route("api/template")]
+[ApiController]
 public class AwsTemplateController : ControllerBase
 {
     private readonly AwsTemplateService _awsTemplateService;
