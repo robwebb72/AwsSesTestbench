@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace AwsSesTestbench.Controllers;
 
 [ApiController]
-[Route("api/notification")]
+[Route("api/aws-notification")]
 public class AwsNotificationController : ControllerBase
 {
     [HttpPost]

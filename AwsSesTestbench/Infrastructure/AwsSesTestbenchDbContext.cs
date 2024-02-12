@@ -1,4 +1,4 @@
-﻿using AwsSesTestbench.Entities;
+﻿using AwsSesTestbench.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace AwsSesTestbench.Infrastructure;
