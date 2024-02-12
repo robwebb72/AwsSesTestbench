@@ -1,32 +1,42 @@
+using System.Runtime.CompilerServices;
+
 namespace AwsSesTestbench.Domain.Enum;
 
-public static class NotificationType
+public class NotificationType
 {
-    private static readonly Dictionary<int, string> Map = new();
-
-    static NotificationType()
-    {
-        Map.Add(0, "sent");        
-        Map.Add(1, "delivered");        
-        Map.Add(2, "opened");        
-        Map.Add(3, "clicked");        
-        Map.Add(4, "bounced");        
-        Map.Add(5, "complaint");        
-        Map.Add(6, "unknown");        
-    }
-
-    public static int ValueFromName(string name)
-    {
-        foreach (var pair in Map)
-            if (string.Equals(pair.Value, name, StringComparison.CurrentCultureIgnoreCase))
-                return pair.Key;
-        throw new ArgumentException($"No Notification Type with a name of {name} found");
-    }
+    public int Value { get; private set; }
+    public string Name { get; private set; }
     
-    public static string NameFromValue(int key)
+    public static readonly NotificationType Sent = new(1);
+    public static readonly NotificationType Delivered = new(2);
+    public static readonly NotificationType Opened = new(3);
+    public static readonly NotificationType Clicked = new(4);
+    public static readonly NotificationType Bounced = new(5);
+    public static readonly NotificationType Complaint = new(6);
+    public static readonly NotificationType Unknown= new(7);
+
+    private NotificationType(int value, [CallerMemberName] string name = "")
     {
-        if (Map.TryGetValue(key, out var name))
-            return name;
-        throw new ArgumentException($"No Notification Type with a value of '{key}' found");
+        Value = value;
+        Name = name;
+    }
+
+    public static NotificationType FromName(string name)
+    {
+        if (string.Compare(name, nameof(Sent), StringComparison.OrdinalIgnoreCase) == 0)
+            return Sent;
+        if (string.Compare(name, nameof(Delivered), StringComparison.OrdinalIgnoreCase) == 0)
+            return Delivered;
+        if (string.Compare(name, nameof(Opened), StringComparison.OrdinalIgnoreCase) == 0)
+            return Opened;
+        if (string.Compare(name, nameof(Clicked), StringComparison.OrdinalIgnoreCase) == 0)
+            return Clicked;
+        if (string.Compare(name, nameof(Bounced), StringComparison.OrdinalIgnoreCase) == 0)
+            return Bounced;
+        if (string.Compare(name, nameof(Complaint), StringComparison.OrdinalIgnoreCase) == 0)
+            return Complaint;
+        if (string.Compare(name, nameof(Unknown), StringComparison.OrdinalIgnoreCase) == 0)
+            return Unknown;
+        throw new ArgumentException($"Notification Type '{name}' not recognised");
     }
 }
